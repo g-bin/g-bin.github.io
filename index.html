@@ -199,14 +199,12 @@
 </blockquote>
 <p> 那怎么办呢？闭包呀，吃包子喽！</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>, len = nodes.length; i &lt; len; i++ )&#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"> i </span>)</span>&#123;</div><div class="line">      nodes[ i ].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">      &#125;</div><div class="line">    &#125;)( i )</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="三：闭包的更多作用"><a href="#三：闭包的更多作用" class="headerlink" title="三：闭包的更多作用"></a>三：闭包的更多作用</h3><p>####1.封装变量</p>
-<ul>
+<h3 id="三：闭包的更多作用"><a href="#三：闭包的更多作用" class="headerlink" title="三：闭包的更多作用"></a>三：闭包的更多作用</h3><h4 id="1-封装变量"><a href="#1-封装变量" class="headerlink" title="1.封装变量"></a>1.封装变量</h4><ul>
 <li>计算乘积</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mult = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> cache = &#123;&#125;;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.join.call( <span class="built_in">arguments</span>, <span class="string">','</span> );</div><div class="line">    <span class="keyword">if</span> ( args <span class="keyword">in</span> cache )&#123;</div><div class="line">      <span class="keyword">return</span> cache[ args ];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> ( <span class="keyword">var</span> i = <span class="number">0</span>, l = <span class="built_in">arguments</span>.length; i &lt; l; i++ )&#123;</div><div class="line">      a = a * <span class="built_in">arguments</span>[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cache[ args ] = a;</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 <p>小伙伴们可看出什么猫腻？对于那些相同的参数来说，每次都进行计算是一种浪费，我们可以像上面那样加入缓存机制来提高这个函数的性能，是不是很机智呢？</p>
-<p>####2.延续局部变量的寿命</p>
-<ul>
+<h4 id="2-延续局部变量的寿命"><a href="#2-延续局部变量的寿命" class="headerlink" title="2.延续局部变量的寿命"></a>2.延续局部变量的寿命</h4><ul>
 <li>img 对象经常用于进行数据上报，如下所示：</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> report = <span class="function"><span class="keyword">function</span>(<span class="params"> src </span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">  img.src = src;</div><div class="line">&#125;;</div><div class="line">report( <span class="string">'http://xxx.com/getUserInfo'</span> );</div></pre></td></tr></table></figure>
@@ -449,7 +447,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，喜欢编程的菇凉~</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，&lt;br&gt;喜欢编程的菇凉~</div>
   	  	
     	</section>
     
