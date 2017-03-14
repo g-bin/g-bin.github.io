@@ -8,31 +8,31 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>闭包 | g-bin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="闭包闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
+  <meta name="description" content="闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
 一：变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的是在函数中声明的变量作用域。
 
 当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var，这个变量就会成为全局变量，这当然是一种容易造成命名冲突的做法。
 
-另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只">
+另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只有在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包">
 <meta property="og:url" content="http://yoursite.com/2017/03/12/闭包/index.html">
 <meta property="og:site_name" content="g-bin Blog">
-<meta property="og:description" content="闭包闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
+<meta property="og:description" content="闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
 一：变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的是在函数中声明的变量作用域。
 
 当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var，这个变量就会成为全局变量，这当然是一种容易造成命名冲突的做法。
 
-另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只">
-<meta property="og:updated_time" content="2017-03-13T13:19:13.119Z">
+另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只有在">
+<meta property="og:updated_time" content="2017-03-14T13:22:25.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="闭包闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
+<meta name="twitter:description" content="闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点
 一：变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的是在函数中声明的变量作用域。
 
 当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var，这个变量就会成为全局变量，这当然是一种容易造成命名冲突的做法。
 
-另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只">
+另外一种情况是用 var 关键字在函数中声明变量，这时候的变量即是局部变量，只有在">
   
     <link rel="alternative" href="/atom.xml" title="g-bin Blog" type="application/atom+xml">
   
@@ -67,7 +67,7 @@
 		  <h1 class="header-author"><a href="/">Ge Bin</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你必须非常努力才能看起来毫不费力，爱笑的媛菇凉。</p>
+		<p class="header-subtitle">你必须非常努力才能看起来毫不费力。</p>
 		
 
 		<nav class="header-menu">
@@ -125,7 +125,7 @@
 			  <h1 class="header-author js-header-author">Ge Bin</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力才能看起来毫不费力，爱笑的媛菇凉。<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力才能看起来毫不费力。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p><strong>闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点</strong></p>
+        <p><strong>闭包的形成与变量的作用域以及变量的生存周期密切相关。下面我们先简单了解这两个知识点</strong></p>
 <h3 id="一：变量的作用域"><a href="#一：变量的作用域" class="headerlink" title="一：变量的作用域"></a>一：变量的作用域</h3><p> 变量的作用域，就是指变量的有效范围。我们最常谈到的是在函数中声明的变量作用域。</p>
 <ul>
 <li><p>当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var，这个变量就会成为<br>全局变量，这当然是一种容易造成命名冲突的做法。</p>
@@ -602,7 +602,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，&lt;br&gt;喜欢编程的菇凉~</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，&lt;br&gt;喜欢编程，&lt;br&gt;爱笑的媛菇凉~</div>
   	  	
     	</section>
     

@@ -8,16 +8,52 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>this | g-bin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是this">
+  <meta name="description" content="this是Javascript语言的一个关键字
+一：使用场景
+注意点：
+在绝大多数情况下，函数的调用方式决定了this的值。
+this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同
+
+
+全局环境
+在全局运行上下文（全局环境）中（在任何函数体外部），this指代全局对象，无论是否在严格模式下
+
+
+
+1234// 在浏览器中，全局对象为 window 对象：console.log(t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this">
 <meta property="og:url" content="http://yoursite.com/2017/03/12/this/index.html">
 <meta property="og:site_name" content="g-bin Blog">
-<meta property="og:description" content="这是this">
-<meta property="og:updated_time" content="2017-03-12T13:04:30.654Z">
+<meta property="og:description" content="this是Javascript语言的一个关键字
+一：使用场景
+注意点：
+在绝大多数情况下，函数的调用方式决定了this的值。
+this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同
+
+
+全局环境
+在全局运行上下文（全局环境）中（在任何函数体外部），this指代全局对象，无论是否在严格模式下
+
+
+
+1234// 在浏览器中，全局对象为 window 对象：console.log(t">
+<meta property="og:updated_time" content="2017-03-14T13:55:27.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this">
-<meta name="twitter:description" content="这是this">
+<meta name="twitter:description" content="this是Javascript语言的一个关键字
+一：使用场景
+注意点：
+在绝大多数情况下，函数的调用方式决定了this的值。
+this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同
+
+
+全局环境
+在全局运行上下文（全局环境）中（在任何函数体外部），this指代全局对象，无论是否在严格模式下
+
+
+
+1234// 在浏览器中，全局对象为 window 对象：console.log(t">
   
     <link rel="alternative" href="/atom.xml" title="g-bin Blog" type="application/atom+xml">
   
@@ -52,7 +88,7 @@
 		  <h1 class="header-author"><a href="/">Ge Bin</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">你必须非常努力才能看起来毫不费力，爱笑的媛菇凉。</p>
+		<p class="header-subtitle">你必须非常努力才能看起来毫不费力。</p>
 		
 
 		<nav class="header-menu">
@@ -110,7 +146,7 @@
 			  <h1 class="header-author js-header-author">Ge Bin</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力才能看起来毫不费力，爱笑的媛菇凉。<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>你必须非常努力才能看起来毫不费力。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -175,7 +211,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是this</p>
+        <p><strong>this是Javascript语言的一个关键字</strong></p>
+<h3 id="一：使用场景"><a href="#一：使用场景" class="headerlink" title="一：使用场景"></a>一：使用场景</h3><blockquote>
+<p>注意点：</p>
+<p>在绝大多数情况下，函数的调用方式决定了this的值。</p>
+<p>this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同</p>
+</blockquote>
+<ul>
+<li>全局环境<ul>
+<li>在全局运行上下文（全局环境）中（在任何函数体外部），this指代全局对象，无论是否在严格模式下</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在浏览器中，全局对象为 window 对象：</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></div><div class="line"><span class="keyword">this</span>.a = <span class="number">37</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// 37</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>函数上下文</p>
+<blockquote>
+<p>在函数内部，this的值取决于函数是如何调用的。</p>
+</blockquote>
+<ul>
+<li><p>直接调用时的this</p>
+<ul>
+<li><p>因为下面的代码不是在严格模式下执行，并且this的值不会在函数执行时被设置，此时的this的值会默认设置为全局对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">f1() === <span class="built_in">window</span>; <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>然而，在严格模式下，this将保持他进入执行环境时的值，所以下面的this将会默认为undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="meta">  "use strict"</span>; <span class="comment">// 这里是严格模式</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">f2() === <span class="literal">undefined</span>; <span class="comment">// true</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意：在严格模式下，如果this未被执行的上下文环境定义，那么它将会默认为undefined。</strong></p>
+</li>
+<li><p>对象方法中的this</p>
+<ul>
+<li>当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象.<blockquote>
+<p>注意，在何处或者如何定义调用函数完全不会影响到this的行为,this的值只与函数作为对象的成员被调用有关系</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>构造函数中的this</p>
+</li>
+<li>call和apply中的this</li>
+<li>bind中的this</li>
+<li>DOM事件处理函数中的this</li>
+<li>定时器中的this</li>
+<li>Node中的this</li>
+<li>this的备份</li>
+</ul>
+</li>
+</ul>
 
       
 
@@ -464,7 +548,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，&lt;br&gt;喜欢编程的菇凉~</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个喜欢阿狸，&lt;br&gt;喜欢编程，&lt;br&gt;爱笑的媛菇凉~</div>
   	  	
     	</section>
     
