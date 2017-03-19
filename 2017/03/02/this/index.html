@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="g-bin Blog">
 <meta property="og:description" content="this是Javascript语言的一个关键字
 使用场景注意点：在绝大多数情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同">
-<meta property="og:updated_time" content="2017-03-19T08:20:24.416Z">
+<meta property="og:updated_time" content="2017-03-19T08:22:54.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this">
 <meta name="twitter:description" content="this是Javascript语言的一个关键字
@@ -187,8 +187,7 @@
 <h4 id="函数上下文"><a href="#函数上下文" class="headerlink" title="函数上下文"></a>函数上下文</h4><blockquote>
 <p>在函数内部，this的值取决于函数是如何调用的。</p>
 </blockquote>
-<p>#####1. 直接调用时的this</p>
-<ul>
+<h5 id="1-直接调用时的this"><a href="#1-直接调用时的this" class="headerlink" title="1. 直接调用时的this"></a>1. 直接调用时的this</h5><ul>
 <li>因为下面的代码不是在严格模式下执行，并且this的值不会在函数执行时被设置，此时的this的值会默认设置为<strong>全局对象</strong></li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">f1() === <span class="built_in">window</span>; <span class="comment">// true</span></div></pre></td></tr></table></figure>
@@ -199,8 +198,7 @@
 <blockquote>
 <p>注意：在严格模式下，如果this未被执行的上下文环境定义，那么它将会默认为undefined。</p>
 </blockquote>
-<p>#####2. 对象方法中的this</p>
-<ul>
+<h5 id="2-对象方法中的this"><a href="#2-对象方法中的this" class="headerlink" title="2. 对象方法中的this"></a>2. 对象方法中的this</h5><ul>
 <li><p>当以对象里的方法的方式调用函数时，它们的 this 是调用该函数的对象.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">prop</span>: <span class="number">37</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">independent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.prop;</div><div class="line">&#125;</div><div class="line">o.f = independent;</div><div class="line"><span class="built_in">console</span>.log(o.f()); <span class="comment">// logs 37</span></div><div class="line">  </div></pre></td></tr></table></figure>
 </li>
@@ -208,8 +206,7 @@
 <blockquote>
 <p>注意，在何处或者如何定义调用函数完全不会影响到this的行为,this的值只与函数作为对象的成员被调用有关系</p>
 </blockquote>
-<p>#####3. 构造函数中的this</p>
-<ul>
+<h5 id="3-构造函数中的this"><a href="#3-构造函数中的this" class="headerlink" title="3. 构造函数中的this"></a>3. 构造函数中的this</h5><ul>
 <li>当一个函数被当做构造函数来调用的时候（首字母大写，与new一起使用），他的this与即将创建的<strong>新对象</strong>绑定。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">C2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.a = <span class="number">37</span>;</div><div class="line">&#125;</div><div class="line">o = <span class="keyword">new</span> C2();</div><div class="line"><span class="built_in">console</span>.log(o.a); <span class="comment">// logs 37</span></div></pre></td></tr></table></figure>
@@ -220,8 +217,7 @@
 <blockquote>
 <p>注意：当构造函数返回一个引用类型的时候，与this绑定的默认对象被取消，也就是说返回的值会覆盖原先的新对象</p>
 </blockquote>
-<p>#####4. call和apply中的this</p>
-<ul>
+<h5 id="4-call和apply中的this"><a href="#4-call和apply中的this" class="headerlink" title="4. call和apply中的this"></a>4. call和apply中的this</h5><ul>
 <li>当一个函数的函数体内部使用了this，然后通过所有的函数都继承了Function对象的原型上的call()和apply()方法调用的时候可以改变this的指向为call和apply方法的第一个参数，如下：</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> x = <span class="number">0</span>;</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">y,z</span>)</span>&#123;</div><div class="line">       <span class="built_in">console</span>.log(<span class="keyword">this</span>.x + y + z);</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">var</span> obj = &#123;</div><div class="line">       <span class="attr">x</span>:<span class="number">3</span></div><div class="line">   &#125;</div><div class="line">   test.call(obj,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line"><span class="comment">//test.apply(obj,[4,5])</span></div></pre></td></tr></table></figure>
@@ -229,26 +225,21 @@
 <p>注意点：在使用call和apply的时候如果第一个参数传递的不是一个对象，那么JavaScript会在内部使用ToObject将其转换为对象，比如原始值是7的话，内部就会通过new Number(7)来把他转换为一个对象，如下：</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="keyword">this</span>));</div><div class="line">&#125;</div><div class="line">bar.call(<span class="number">7</span>); <span class="comment">// [object Number]</span></div></pre></td></tr></table></figure>
-<p>#####5. bind中的this</p>
-<ul>
+<h5 id="5-bind中的this"><a href="#5-bind中的this" class="headerlink" title="5. bind中的this"></a>5. bind中的this</h5><ul>
 <li>如果调用fn.bind(obj)方法的话会创建一个和fn有相同函数体和作用域的新函数，<strong>但是这个新函数的this被绑定为了第一个参数obj，而且不管他是怎么调用</strong></li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.a;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> g = f.bind(&#123;<span class="attr">a</span>:<span class="string">"azerty"</span>&#125;);</div><div class="line"><span class="built_in">console</span>.log(g());<span class="comment">//azerty</span></div><div class="line"><span class="keyword">var</span> o = &#123;<span class="attr">a</span>:<span class="number">37</span>, <span class="attr">f</span>:f, <span class="attr">g</span>:g&#125;;</div><div class="line"><span class="built_in">console</span>.log(o.f(), o.g()); <span class="comment">//37 azerty</span></div></pre></td></tr></table></figure>
-<p>#####6. DOM事件处理函数中的this</p>
-<ul>
+<h5 id="6-DOM事件处理函数中的this"><a href="#6-DOM事件处理函数中的this" class="headerlink" title="6. DOM事件处理函数中的this"></a>6. DOM事件处理函数中的this</h5><ul>
 <li>当函数被用作事件处理函数时候，this指向的是触发事件的元素，在一些不是用addEventListener动态添加事件的浏览器中不遵守这个约定</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 被调用时，将关联的元素变成蓝色</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bluify</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> === e.currentTarget); <span class="comment">// 总是 true</span></div><div class="line">    <span class="comment">// 当 currentTarget 和 target 是同一个对象是为 true</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span> === e.target);</div><div class="line">    <span class="keyword">this</span>.style.backgroundColor = <span class="string">'#A5D9F3'</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 获取文档中的所有元素的列表</span></div><div class="line"><span class="keyword">var</span> elements = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</div><div class="line"><span class="comment">// 将bluify作为元素的点击监听函数，当元素被点击时，就会变成蓝色</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;elements.length ; i++)&#123;</div><div class="line">    elements[i].addEventListener(<span class="string">'click'</span>, bluify, <span class="literal">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>#####7. 定时器中的this</p>
-<ul>
+<h5 id="7-定时器中的this"><a href="#7-定时器中的this" class="headerlink" title="7. 定时器中的this"></a>7. 定时器中的this</h5><ul>
 <li>定时器中回调函数里面的this指向全局window</li>
 </ul>
-<p>#####8. Node中的this</p>
-<ul>
+<h5 id="8-Node中的this"><a href="#8-Node中的this" class="headerlink" title="8. Node中的this"></a>8. Node中的this</h5><ul>
 <li>在Node中，this的指向又分成两种情况。全局环境中，this指向全局对象global；模块环境中，this指向module.exports。</li>
 </ul>
-<p>#####9. this的备份</p>
-<ul>
+<h5 id="9-this的备份"><a href="#9-this的备份" class="headerlink" title="9. this的备份"></a>9. this的备份</h5><ul>
 <li>当使用多层this时候，为了访问正确的this我们需要对正确的this进行备份，以便后来使用</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    <span class="attr">f1</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">        &#125;();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">o.f1()</div><div class="line"><span class="comment">// Object</span></div><div class="line"><span class="comment">// Window</span></div></pre></td></tr></table></figure>
