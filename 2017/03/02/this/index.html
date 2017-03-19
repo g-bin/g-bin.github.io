@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="g-bin Blog">
 <meta property="og:description" content="this是Javascript语言的一个关键字
 使用场景注意点：在绝大多数情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，在每次函数被调用时this的值也可能会不同">
-<meta property="og:updated_time" content="2017-03-19T08:22:54.111Z">
+<meta property="og:updated_time" content="2017-03-19T08:46:14.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this">
 <meta name="twitter:description" content="this是Javascript语言的一个关键字
@@ -236,10 +236,7 @@
 <h5 id="7-定时器中的this"><a href="#7-定时器中的this" class="headerlink" title="7. 定时器中的this"></a>7. 定时器中的this</h5><ul>
 <li>定时器中回调函数里面的this指向全局window</li>
 </ul>
-<h5 id="8-Node中的this"><a href="#8-Node中的this" class="headerlink" title="8. Node中的this"></a>8. Node中的this</h5><ul>
-<li>在Node中，this的指向又分成两种情况。全局环境中，this指向全局对象global；模块环境中，this指向module.exports。</li>
-</ul>
-<h5 id="9-this的备份"><a href="#9-this的备份" class="headerlink" title="9. this的备份"></a>9. this的备份</h5><ul>
+<h5 id="8-this的备份"><a href="#8-this的备份" class="headerlink" title="8. this的备份"></a>8. this的备份</h5><ul>
 <li>当使用多层this时候，为了访问正确的this我们需要对正确的this进行备份，以便后来使用</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    <span class="attr">f1</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">        <span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">        &#125;();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">o.f1()</div><div class="line"><span class="comment">// Object</span></div><div class="line"><span class="comment">// Window</span></div></pre></td></tr></table></figure>
@@ -254,6 +251,9 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    <span class="attr">v</span>: <span class="string">'hello'</span>,</div><div class="line">    <span class="attr">p</span>: [ <span class="string">'a1'</span>, <span class="string">'a2'</span> ],</div><div class="line">    <span class="attr">f</span>: <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">this</span>.p.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(that.v+<span class="string">' '</span>+item);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">o.f()</div><div class="line"><span class="comment">// hello a1</span></div><div class="line"><span class="comment">// hello a2</span></div></pre></td></tr></table></figure>
 <p>解决方案二：将this当作foreach方法的第二个参数，固定它的运行环境。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">    <span class="attr">v</span>: <span class="string">'hello'</span>,</div><div class="line">    <span class="attr">p</span>: [ <span class="string">'a1'</span>, <span class="string">'a2'</span> ],</div><div class="line">    <span class="attr">f</span>: <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.p.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.v + <span class="string">' '</span> + item);</div><div class="line">        &#125;, <span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">o.f()</div><div class="line"><span class="comment">// hello a1</span></div><div class="line"><span class="comment">// hello a2</span></div></pre></td></tr></table></figure>
+<h5 id="9-Node中的this"><a href="#9-Node中的this" class="headerlink" title="9. Node中的this"></a>9. Node中的this</h5><ul>
+<li>在Node中，this的指向又分成两种情况。全局环境中，this指向全局对象global；模块环境中，this指向module.exports。</li>
+</ul>
 
       
 

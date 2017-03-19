@@ -6,33 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js碎笔记 | g-bin Blog</title>
+  <title>DOM | g-bin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数名字不可改。
-访问原型对象：
-构造函数：f.prototype
-实例:
-obj. proto ;
-Object.getPrototypeof(obj)">
+  <meta name="description" content="媛菇凉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js碎笔记">
-<meta property="og:url" content="http://yoursite.com/2017/03/13/碎笔记/index.html">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/DOM/index.html">
 <meta property="og:site_name" content="g-bin Blog">
-<meta property="og:description" content="函数名字不可改。
-访问原型对象：
-构造函数：f.prototype
-实例:
-obj. proto ;
-Object.getPrototypeof(obj)">
-<meta property="og:updated_time" content="2017-03-13T13:21:38.343Z">
+<meta property="og:description" content="媛菇凉">
+<meta property="og:updated_time" content="2017-03-19T08:24:35.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js碎笔记">
-<meta name="twitter:description" content="函数名字不可改。
-访问原型对象：
-构造函数：f.prototype
-实例:
-obj. proto ;
-Object.getPrototypeof(obj)">
+<meta name="twitter:title" content="DOM">
+<meta name="twitter:description" content="媛菇凉">
   
     <link rel="alternative" href="/atom.xml" title="g-bin Blog" type="application/atom+xml">
   
@@ -170,71 +155,27 @@ Object.getPrototypeof(obj)">
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-碎笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-DOM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js碎笔记
+      DOM
     </h1>
   
 
         
-        <a href="/2017/03/13/碎笔记/" class="archive-article-date">
-  	<time datetime="2017-03-13T08:43:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-13</time>
+        <a href="/2017/03/19/DOM/" class="archive-article-date">
+  	<time datetime="2017-03-19T08:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>函数名字不可改。</li>
-<li>访问原型对象：<ul>
-<li>构造函数：f.prototype</li>
-<li>实例:<ul>
-<li>obj.<strong> proto </strong>;</li>
-<li>Object.getPrototypeof(obj)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<a id="more"></a>
-<ul>
-<li>判断数据类型：<ul>
-<li>typeof 变量 <ul>
-<li>复杂数据类型返回Object;</li>
-<li>注意：<blockquote>
-<p> console.log(typeof null);//Object</p>
-<p> console.log(null instanceof Object);//false    </p>
-</blockquote>
-</li>
-<li>函数返回Function;</li>
-<li>undefined返回undefined<blockquote>
-<p>null == undefined  //true</p>
-<p>null ==== undefined //false</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>in关键字作用<ul>
-<li>检测属性：属性名 in 对象</li>
-<li>遍历对象 for(var key in obj){key,obj[key]}</li>
-<li>遍历数组 for(var key in arr){key指的是索引}</li>
-</ul>
-</li>
-<li>相等操作符 == </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'demo'</span>;</div><div class="line"><span class="keyword">var</span> strObj = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'demo'</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str); <span class="comment">//string</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> strObj); <span class="comment">// object</span></div><div class="line"><span class="built_in">console</span>.log(str == strObj); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(str === strObj); <span class="comment">//false</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>相等的原因：==操作符如果有一边是对象另一边不是，那对象就会调用对象的valueof方法用得到的基本类型值再去比较</p>
-</blockquote>
-
+        
       
 
       
@@ -263,17 +204,6 @@ Object.getPrototypeof(obj)">
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">碎笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -324,7 +254,7 @@ Object.getPrototypeof(obj)">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/13/碎笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/03/19/DOM/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -338,7 +268,7 @@ Object.getPrototypeof(obj)">
   
 <nav id="article-nav">
   
-    <a href="/2017/03/19/DOM/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/19/DOM-1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -348,8 +278,8 @@ Object.getPrototypeof(obj)">
     </a>
   
   
-    <a href="/2017/03/12/闭包/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">闭包</div>
+    <a href="/2017/03/13/碎笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js碎笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,7 +293,7 @@ Object.getPrototypeof(obj)">
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="碎笔记" data-title="js碎笔记" data-url="http://yoursite.com/2017/03/13/碎笔记/"></div>
+	<div class="ds-thread" data-thread-key="DOM" data-title="DOM" data-url="http://yoursite.com/2017/03/19/DOM/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
