@@ -8,16 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>DOM | g-bin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说出来你可能不信，这是我的第一篇博客">
+  <meta name="description" content="一：基本概念DOM
+文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM">
 <meta property="og:url" content="http://yoursite.com/2015/03/19/DOM/index.html">
 <meta property="og:site_name" content="g-bin Blog">
-<meta property="og:description" content="说出来你可能不信，这是我的第一篇博客">
-<meta property="og:updated_time" content="2017-03-19T09:08:36.724Z">
+<meta property="og:description" content="一：基本概念DOM
+文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
+<meta property="og:updated_time" content="2017-03-19T11:40:57.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM">
-<meta name="twitter:description" content="说出来你可能不信，这是我的第一篇博客">
+<meta name="twitter:description" content="一：基本概念DOM
+文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
   
     <link rel="alternative" href="/atom.xml" title="g-bin Blog" type="application/atom+xml">
   
@@ -175,8 +178,63 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>说出来你可能不信，这是我的第一篇博客</p>
-
+        <h3 id="一：基本概念"><a href="#一：基本概念" class="headerlink" title="一：基本概念"></a>一：基本概念</h3><h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><ul>
+<li>文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。</li>
+</ul>
+<a id="more"></a>
+<h4 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h4><ul>
+<li>DOM的最小组成单位叫节点(node)，文档的树形结构(DOM树)就是由不同类型的节点组成的。</li>
+<li><p>节点类型如下</p>
+<blockquote>
+<p>Document：整个文档树的顶层节点</p>
+<p>DocumentType：doctype标签（比如&lt;!DOCTYPE html&gt;）</p>
+<p>Element：网页的各种HTML标签（比如<code>&lt;body&gt;、&lt;a&gt;</code>等）</p>
+<p>Attribute：网页元素的属性（比如class=”right”）</p>
+<p>Text：标签之间或标签包含的文本</p>
+<p>Comment：注释</p>
+<p>DocumentFragment：文档的片段</p>
+</blockquote>
+</li>
+</ul>
+<p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法</p>
+<h4 id="节点树"><a href="#节点树" class="headerlink" title="节点树"></a>节点树</h4><ul>
+<li>一个文档的所有节点，按照所在的层级，可以抽象成一种树状结构。这种树状结构就是DOM。<ul>
+<li>最顶层的节点就是document节点，它代表了整个文档。文档里面最高一层的HTML标签，一般是<html>，它构成树结构的根节点（root node），其他HTML标签节点都是它的下级。</html></li>
+<li>除了根节点以外，其他节点对于周围的节点都存在三种关系。<blockquote>
+<p>父节点关系（parentNode）：直接的那个上级节点</p>
+<p>子节点关系（childNodes）：直接的下级节点</p>
+<p>同级节点关系（sibling）：拥有同一个父节点的节点</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二：特征相关的属性"><a href="#二：特征相关的属性" class="headerlink" title="二：特征相关的属性"></a>二：特征相关的属性</h3><ul>
+<li>所有的节点对象都是浏览器内置对象node的实例，继承了Node属性和方法，这是所有节点的共同特征，以下属性与节点对象本身的特征相关</li>
+</ul>
+<h4 id="Node-nodeName，Node-nodeType"><a href="#Node-nodeName，Node-nodeType" class="headerlink" title="Node.nodeName，Node.nodeType"></a>Node.nodeName，Node.nodeType</h4><blockquote>
+<p>nodeName属性返回节点的名称，nodeType属性返回节点类型的常数值</p>
+<p>类型                     nodeName                nodeType</p>
+<p>ELEMENT_NODE            大写的HTML元素名            1</p>
+<p>ATTRIBUTE_NODE            等同于Attr.name            2</p>
+<p>TEXT_NODE                #text                    3</p>
+<p>COMMENT_NODE            #comment                8</p>
+<p>DOCUMENT_NODE            #document                9</p>
+<p>DOCUMENT_FRAGMENT_NODE    #document-fragment        11</p>
+<p>DOCUMENT_TYPE_NODE        等同于DocumentType.name    10</p>
+</blockquote>
+<p>举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">'.box'</span>);</div><div class="line"><span class="built_in">console</span>.log(box.nodeName);<span class="comment">//DIV</span></div><div class="line"><span class="built_in">console</span>.log(box.nodeType);<span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<h4 id="Node-nodeValue"><a href="#Node-nodeValue" class="headerlink" title="Node.nodeValue"></a>Node.nodeValue</h4><ul>
+<li><p>Node.nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。</p>
+<ul>
+<li>由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的nodeValue可以返回结果，其他类型的节点一律返回<strong>null</strong>。同样的，也只有这三类节点可以设置nodeValue属性的值。对于那些返回null的节点，设置nodeValue属性是无效的。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Node-textContent"><a href="#Node-textContent" class="headerlink" title="Node.textContent"></a>Node.textContent</h4><ul>
+<li>Node.textContent属性返回当前节点和它的所有后代节点的文本内容</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;div class="box"&gt;</div><div class="line">    我是个盒子啊</div><div class="line">    &lt;span&gt;啦啦啦&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">console.log(box.textContent);//我是个盒子啊 啦啦啦</div></pre></td></tr></table></figure>
       
 
       
