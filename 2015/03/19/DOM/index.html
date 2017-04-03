@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>DOM | g-bin Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一：基本概念DOM
+  <meta name="description" content="一：基本概念1.DOM
 文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM">
 <meta property="og:url" content="http://yoursite.com/2015/03/19/DOM/index.html">
 <meta property="og:site_name" content="g-bin Blog">
-<meta property="og:description" content="一：基本概念DOM
+<meta property="og:description" content="一：基本概念1.DOM
 文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
-<meta property="og:updated_time" content="2017-03-19T11:40:57.844Z">
+<meta property="og:updated_time" content="2017-03-19T12:59:13.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM">
-<meta name="twitter:description" content="一：基本概念DOM
+<meta name="twitter:description" content="一：基本概念1.DOM
 文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。">
   
     <link rel="alternative" href="/atom.xml" title="g-bin Blog" type="application/atom+xml">
@@ -178,11 +178,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一：基本概念"><a href="#一：基本概念" class="headerlink" title="一：基本概念"></a>一：基本概念</h3><h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><ul>
+        <h3 id="一：基本概念"><a href="#一：基本概念" class="headerlink" title="一：基本概念"></a>一：基本概念</h3><h4 id="1-DOM"><a href="#1-DOM" class="headerlink" title="1.DOM"></a>1.DOM</h4><ul>
 <li>文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，DOM 提供了一种表述形式— 将文档作为一个结构化的节点组以及包含属性和方法的对象。从本质上说，它将 web 页面和脚本或编程语言连接起来了。</li>
 </ul>
 <a id="more"></a>
-<h4 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h4><ul>
+<h4 id="2-节点"><a href="#2-节点" class="headerlink" title="2.节点"></a>2.节点</h4><ul>
 <li>DOM的最小组成单位叫节点(node)，文档的树形结构(DOM树)就是由不同类型的节点组成的。</li>
 <li><p>节点类型如下</p>
 <blockquote>
@@ -197,7 +197,7 @@
 </li>
 </ul>
 <p>这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法</p>
-<h4 id="节点树"><a href="#节点树" class="headerlink" title="节点树"></a>节点树</h4><ul>
+<h4 id="3-节点树"><a href="#3-节点树" class="headerlink" title="3.节点树"></a>3.节点树</h4><ul>
 <li>一个文档的所有节点，按照所在的层级，可以抽象成一种树状结构。这种树状结构就是DOM。<ul>
 <li>最顶层的节点就是document节点，它代表了整个文档。文档里面最高一层的HTML标签，一般是<html>，它构成树结构的根节点（root node），其他HTML标签节点都是它的下级。</html></li>
 <li>除了根节点以外，其他节点对于周围的节点都存在三种关系。<blockquote>
@@ -212,7 +212,7 @@
 <h3 id="二：特征相关的属性"><a href="#二：特征相关的属性" class="headerlink" title="二：特征相关的属性"></a>二：特征相关的属性</h3><ul>
 <li>所有的节点对象都是浏览器内置对象node的实例，继承了Node属性和方法，这是所有节点的共同特征，以下属性与节点对象本身的特征相关</li>
 </ul>
-<h4 id="Node-nodeName，Node-nodeType"><a href="#Node-nodeName，Node-nodeType" class="headerlink" title="Node.nodeName，Node.nodeType"></a>Node.nodeName，Node.nodeType</h4><blockquote>
+<h4 id="1-Node-nodeName，Node-nodeType"><a href="#1-Node-nodeName，Node-nodeType" class="headerlink" title="1.Node.nodeName，Node.nodeType"></a>1.Node.nodeName，Node.nodeType</h4><blockquote>
 <p>nodeName属性返回节点的名称，nodeType属性返回节点类型的常数值</p>
 <p>类型                     nodeName                nodeType</p>
 <p>ELEMENT_NODE            大写的HTML元素名            1</p>
@@ -224,17 +224,27 @@
 <p>DOCUMENT_TYPE_NODE        等同于DocumentType.name    10</p>
 </blockquote>
 <p>举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.querySelector(<span class="string">'.box'</span>);</div><div class="line"><span class="built_in">console</span>.log(box.nodeName);<span class="comment">//DIV</span></div><div class="line"><span class="built_in">console</span>.log(box.nodeType);<span class="comment">//1</span></div></pre></td></tr></table></figure></p>
-<h4 id="Node-nodeValue"><a href="#Node-nodeValue" class="headerlink" title="Node.nodeValue"></a>Node.nodeValue</h4><ul>
+<h4 id="2-Node-nodeValue"><a href="#2-Node-nodeValue" class="headerlink" title="2.Node.nodeValue"></a>2.Node.nodeValue</h4><ul>
 <li><p>Node.nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。</p>
 <ul>
 <li>由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的nodeValue可以返回结果，其他类型的节点一律返回<strong>null</strong>。同样的，也只有这三类节点可以设置nodeValue属性的值。对于那些返回null的节点，设置nodeValue属性是无效的。</li>
 </ul>
 </li>
 </ul>
-<h4 id="Node-textContent"><a href="#Node-textContent" class="headerlink" title="Node.textContent"></a>Node.textContent</h4><ul>
+<h4 id="3-Node-textContent"><a href="#3-Node-textContent" class="headerlink" title="3.Node.textContent"></a>3.Node.textContent</h4><ul>
 <li>Node.textContent属性返回当前节点和它的所有后代节点的文本内容</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;div class="box"&gt;</div><div class="line">    我是个盒子啊</div><div class="line">    &lt;span&gt;啦啦啦&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">console.log(box.textContent);//我是个盒子啊 啦啦啦</div></pre></td></tr></table></figure>
+<h5 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h5><blockquote>
+<p>document节点和doctype节点的textContent属性为null。</p>
+<p>如果要读取整个文档的内容，可以使用document.documentElement.textContent。</p>
+</blockquote>
+<h4 id="4-Node-baseURI"><a href="#4-Node-baseURI" class="headerlink" title="4.Node.baseURI"></a>4.Node.baseURI</h4><ul>
+<li>Node.baseURI属性返回一个字符串，表示当前网页的绝对路径。如果无法取到这个值，则返回null。浏览器根据这个属性，计算网页上的相对路径的URL。该属性为只读。</li>
+<li>该属性的值一般由当前网址的URL（即window.location属性）决定，但是可以使用HTML的<base>标签，改变该属性的值。<br><code>&lt;base href=&quot;http://www.example.com/page.html&quot;&gt;
+&lt;base target=&quot;_blank&quot; href=&quot;http://www.example.com/page.html&quot;&gt;</code></li>
+</ul>
+
       
 
       
