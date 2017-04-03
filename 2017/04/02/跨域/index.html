@@ -30,7 +30,7 @@
 
 跨域通信的方法大致可以分为两类
 第一种是Hack，例如通过title，navigation">
-<meta property="og:updated_time" content="2017-04-03T07:10:57.782Z">
+<meta property="og:updated_time" content="2017-04-03T07:31:38.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="概念：只要协议、域名、端口有任何一个不同，都被当作是不同的域。
@@ -211,7 +211,7 @@
 <li>第二类是HTML5支持，一个是Access-Control-Allow-Origin响应头，一个是window.postMessage。</li>
 </ul>
 <a id="more"></a>
-<h4 id="一：设置document-domain"><a href="#一：设置document-domain" class="headerlink" title="一：设置document.domain"></a>一：设置document.domain</h4><blockquote>
+<h4 id="一-设置document-domain"><a href="#一-设置document-domain" class="headerlink" title="一.设置document.domain"></a>一.设置document.domain</h4><blockquote>
 <p>document.domain:获取/设置当前文档的原始域部分, 用于 同源策略.</p>
 <p>在根域范围内，Mozilla允许你把domain属性的值设置为它的<strong>上一级域</strong>。例如，在 developer.mozilla.org 域内，可以把domain设置为 “mozilla.org” 但不能设置为 “mozilla.com” 或者”org”。</p>
 </blockquote>
@@ -244,7 +244,7 @@
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">    function dosomething(jsondata)&#123;</div><div class="line">        //处理获得的json数据</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src="http://example.com/data.php?callback=dosomething"&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line">$callback = $_GET[<span class="string">'callback'</span>];<span class="comment">//得到回调函数名</span></div><div class="line">$data = array(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//要返回的数据</span></div><div class="line">echo $callback.<span class="string">'('</span>.json_encode($data).<span class="string">')'</span>;<span class="comment">//输出</span></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$callback = $_GET[<span class="string">'callback'</span>];<span class="comment">//得到回调函数名</span></div><div class="line">$data = <span class="keyword">array</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//要返回的数据</span></div><div class="line"><span class="keyword">echo</span> $callback.<span class="string">'('</span>.json_encode($data).<span class="string">')'</span>;<span class="comment">//输出</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
 <h4 id="四：window-name"><a href="#四：window-name" class="headerlink" title="四：window.name"></a>四：window.name</h4><blockquote>
 <p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置</p>
 </blockquote>
