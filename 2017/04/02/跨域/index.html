@@ -30,7 +30,7 @@
 
 跨域通信的方法大致可以分为两类
 第一种是Hack，例如通过title，navigation">
-<meta property="og:updated_time" content="2017-04-07T10:58:24.089Z">
+<meta property="og:updated_time" content="2017-04-07T11:00:09.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="概念：只要协议、域名、端口有任何一个不同，都被当作是不同的域。
@@ -247,7 +247,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script type="text/javascript"&gt;</div><div class="line">    function dosomething(jsondata)&#123;</div><div class="line">        //处理获得的json数据</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script src="http://example.com/data.php?callback=dosomething"&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的json数据作为参数传入。所以jsonp是需要服务器端的页面进行相应的配合的。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$callback = $_GET[<span class="string">'callback'</span>];<span class="comment">//得到回调函数名</span></div><div class="line">$data = <span class="keyword">array</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//要返回的数据</span></div><div class="line"><span class="keyword">echo</span> $callback.<span class="string">'('</span>.json_encode($data).<span class="string">')'</span>;<span class="comment">//输出</span></div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
-<p> <strong>四：window.name</strong></p>
+<p> <strong>三：window.name</strong></p>
 <blockquote>
 <p>window对象有个name属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个window.name的，每个页面对window.name都有读写的权限，window.name是持久存在一个窗口载入过的所有页面中的，并不会因新页面的载入而进行重置</p>
 </blockquote>
@@ -264,12 +264,12 @@
 </ul>
 </li>
 </ul>
-<p><strong>五：navigation对象</strong></p>
+<p><strong>四：navigation对象</strong></p>
 <ul>
 <li>原理：iframe之间是共享navigator对象的，用它来传递信息</li>
 <li>限制：只限于ie6/7</li>
 </ul>
-<p><strong>六：跨域资源共享（CORS）</strong></p>
+<p><strong>五：跨域资源共享（CORS）</strong></p>
 <ul>
 <li>原理：<ul>
 <li>cors是一种通过设置前后端http header配置Access-Control-Allow-Origin来进行跨域的一种方式</li>
@@ -284,7 +284,7 @@
 <p> HTML5标准中提出的跨域资源共享（Cross Origin Resource Share，CORS）才是正道。 它支持其他的HTTP方法如PUT, POST等，可以从本质上解决跨域问题<br>比如我们要从<a href="http://a.com访问http://b.com我们可以直接在b.com的服务器中设置相应字段" target="_blank" rel="external">http://a.com访问http://b.com我们可以直接在b.com的服务器中设置相应字段</a></p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: *              # 允许所有域名访问，或者</div><div class="line">Access-Control-Allow-Origin: http://a.com   # 只允许特定域名访问</div></pre></td></tr></table></figure>
-<p><strong>七：window.postMessage</strong></p>
+<p><strong>六：window.postMessage</strong></p>
 <ul>
 <li>原理：<ul>
 <li>HTML5允许窗口之间发送消息</li>
